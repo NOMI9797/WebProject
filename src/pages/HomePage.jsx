@@ -11,7 +11,7 @@ const HomePage = () => {
       {/* Hero Section */}
       <div className="relative h-[80vh] flex items-center justify-center text-center text-white">
         <img
-          src="/public/outfitter.jpg"
+          src="/outfitter.jpg"
           alt="Hero Background"
           className="absolute inset-0 w-full h-full object-cover opacity-80"
         />

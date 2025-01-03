@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import db from "../appwrite/Services/dbServices";
 import storageServices from "../appwrite/Services/storageServices";
 import { ID } from "appwrite";
+import ProductCard from '../components/ProductCard';
 
 const Dashboard = () => {
   const [selectedFeature, setSelectedFeature] = useState("List Products");
@@ -93,23 +94,6 @@ const Dashboard = () => {
       setLoading(false);
     }
   };
-
-  // Product Card Component
-  const ProductCard = ({ product }) => (
-    <div key={product.$id} className="bg-white shadow rounded-lg p-4">
-      <img
-        src={product.imageUrl || "/path/to/fallback/image.jpg"}
-        alt={product.name}
-        className="w-full h-40 object-cover rounded-md"
-        onError={(e) => {
-          e.target.src = "/path/to/fallback/image.jpg"; // Replace with a valid fallback image
-        }}
-      />
-      <h3 className="text-lg font-medium mt-4">{product.name}</h3>
-      <p className="text-sm text-gray-600">{product.category}</p>
-      <p className="text-sm text-gray-600 font-bold">PKR {product.price}</p>
-    </div>
-  );
 
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
