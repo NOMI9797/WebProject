@@ -4,6 +4,8 @@ import SignupForm from './pages/SignUpForm';
 import LoginForm from './pages/LoginForm';
 import Home from './pages/Home';
 import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import SalesPage from './pages/SalesPage';
 import { getCurrentUser } from './appwrite/Services/authServices';
 
 function App() {
@@ -39,6 +41,14 @@ function App() {
         <Route 
           path="/profile" 
           element={user ? <Home user={user} setUser={setUser} /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/products" 
+          element={user ? <ProductPage /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/sales" 
+          element={user ? <SalesPage /> : <Navigate to="/login" />} 
         />
         <Route 
           path="/signup" 
