@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SignupForm from './pages/SignUpForm';
 import LoginForm from './pages/LoginForm';
 import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import { getCurrentUser } from './appwrite/Services/authServices';
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
       <Routes>
         <Route 
           path="/" 
+          element={user ? <HomePage /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/profile" 
           element={user ? <Home user={user} setUser={setUser} /> : <Navigate to="/login" />} 
         />
         <Route 
