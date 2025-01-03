@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import HomePage from './pages/HomePage';
 import ProductPage from './pages/ProductPage';
 import SalesPage from './pages/SalesPage';
+import Dashboard from './dashboard/Dashboard';
 import { getCurrentUser } from './appwrite/Services/authServices';
 
 function App() {
@@ -37,6 +38,10 @@ function App() {
         <Route 
           path="/" 
           element={user ? <HomePage /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/dashboard" 
+          element={user ? <Dashboard /> : <Navigate to="/login" />} 
         />
         <Route 
           path="/profile" 
